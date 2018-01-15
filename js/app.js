@@ -207,7 +207,18 @@ $(document).ready(function(){
       centerMode: true,
       variableWidth: true,
       prevArrow: '<button type="button" class="slick-prev"></button>',
-      nextArrow: '<button type="button" class="slick-next"></button>'
+      nextArrow: '<button type="button" class="slick-next"></button>',
+     // fade: true,
+      //cssEase: 'linear',
+      responsive: [
+        {
+          breakpoint: 850,
+          settings: {
+            //autoplay: true,
+            arrows: false
+          }
+        }
+      ]
     });
   }
 
