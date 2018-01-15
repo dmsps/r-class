@@ -141,8 +141,18 @@ $(document).ready(() => {
 
   // HAMBURGER TOGGLER
   $('.js-hamburger').on('click', function(){
+    //$('.hamburger').addClass('active');
+    //$('.mobile__menu').toggleClass('active');
+    $('.ui.sidebar').sidebar('toggle', 'hamburger');
     $('.hamburger').toggleClass('active');
-    $('.mobile__menu').toggleClass('active');
+  });
+
+  //Меняем на закрытый hamburger при клике по другому блоку
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest(".page").length) {
+      $('.hamburger').toggleClass('active');
+    }
+    e.stopPropagation();
   });
 
   // SET ACTIVE CLASS IN HEADER
@@ -397,6 +407,11 @@ $(document).ready(() => {
     value: languages[0],
     placeholder: null
   });
+
+  $('.ui.dropdown')
+    .dropdown({
+      transition: 'horizontal flip'
+    });
 
 });
 
