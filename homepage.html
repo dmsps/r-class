@@ -29,17 +29,17 @@
               <div class="js-hamburger hamburger hamburger--collapse">
                 <div class="hamburger-box">
                   <div class="hamburger-inner"></div>
-                  <ul class="mobile__menu">
-                    <li class="header__menu__item"><a class="header__menu__link" href="#">О КОМПАНИИ</a></li>
-                    <li class="header__menu__item"><a class="header__menu__link" href="#">КАТАЛОГ</a></li>
-                    <li class="header__menu__item"><a class="header__menu__link" href="#">ГДЕ КУПИТЬ</a></li>
-                    <li class="header__menu__item"><a class="header__menu__link" href="#">СПРАВОЧНИК</a></li>
-                    <li class="header__menu__item"><a class="header__menu__link" href="#">БЛОГ</a></li>
-                    <li class="header__menu__item"><a class="header__menu__link" href="#">ПАРТНЕРАМ</a></li>
-                    <li class="header__menu__item"><a class="header__menu__link" href="#">КОНТАКТЫ</a></li>
-                  </ul>
                 </div>
-              </div><a class="logo" href="/homepage.pug"></a><a class="header__phone" href="#"> <i class="icon icon-phone"></i>+7 (495) 510-57-25</a>
+              </div>
+              <ul class="mobile__menu">
+                <li class="header__menu__item"><a class="header__menu__link" href="#">О КОМПАНИИ</a></li>
+                <li class="header__menu__item"><a class="header__menu__link" href="#">КАТАЛОГ</a></li>
+                <li class="header__menu__item"><a class="header__menu__link" href="#">ГДЕ КУПИТЬ</a></li>
+                <li class="header__menu__item"><a class="header__menu__link" href="#">СПРАВОЧНИК</a></li>
+                <li class="header__menu__item"><a class="header__menu__link" href="#">БЛОГ</a></li>
+                <li class="header__menu__item"><a class="header__menu__link" href="#">ПАРТНЕРАМ</a></li>
+                <li class="header__menu__item"><a class="header__menu__link" href="#">КОНТАКТЫ</a></li>
+              </ul><a class="logo" href="/homepage.pug"></a><a class="header__phone" href="#"> <i class="icon icon-phone"></i>+7 (495) 510-57-25</a>
             </div>
             <!-- menu : start-->
             <div class="header__menu">
@@ -124,8 +124,8 @@
           <div class="container"> 
             <h3 class="block__title">НАШИ КЛИЕНТЫ</h3>
             <div class="clients__wrapper">
-              <div class="clients__slider"> 
-                <div class="clients__slide">
+              <div class="swiper-wrapper"> 
+                <div class="swiper-slide">
                   <article class="clients__slide__wrapper">
                     <div class="clients__slide__img"><img src="https://picsum.photos/300/430/?random" alt="ВЕРОНИКА ИВАНОВА" srcset="https://picsum.photos/600/860/?random 2x"></div>
                     <div class="clients__slide__block">
@@ -135,7 +135,7 @@
                     </div>
                   </article>
                 </div>
-                <div class="clients__slide">
+                <div class="swiper-slide">
                   <article class="clients__slide__wrapper">
                     <div class="clients__slide__img"><img src="https://picsum.photos/300/430/?random" alt="ВЕРОНИКА ИВАНОВА" srcset="https://picsum.photos/600/860/?random 2x"></div>
                     <div class="clients__slide__block">
@@ -146,6 +146,9 @@
                   </article>
                 </div>
               </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
             </div>
           </div>
         </section>
@@ -155,10 +158,9 @@
             <div class="news__wrapper">
               <article class="news__post">
                 <div class="news__post__img"> <img src="https://picsum.photos/300/300" srcset="https://picsum.photos/600/600 2x" alt="Заголовок новости"></div>
-                <div class="news__post__block">
-                  <p class="news__post__date">22.12.2017</p>
-                  <h3 class="news__post__title">Заголовок новости. Этот заголовок может занимать до двух строк.</h3>
-                  <p class="news__post__description">
+                <div class="news__post__block"><span class="news__post__date">22.12.2017</span>
+                  <h3>Заголовок новости. Этот заголовок может занимать до двух строк.</h3>
+                  <p>
                     Компания Р-КЛАСС расширила ассортимент выпускаемых вкладышей в пуанты. Ранее вкладыши выпускались только одной толщины - 3 мм ("толстые"). В новом сезоне запущены в производство вкладыши толщиной 2 мм ("тонкие"). "Тонкие" вкладыши наилучшим образом подходят для танцоров, использующих пуанты маленьких размеров.
                     
                   </p>
@@ -166,10 +168,9 @@
               </article>
               <article class="news__post">
                 <div class="news__post__img"> <img src="https://picsum.photos/300/300" srcset="https://picsum.photos/600/600 2x" alt="Заголовок новости"></div>
-                <div class="news__post__block">
-                  <p class="news__post__date">20.12.2017</p>
-                  <h3 class="news__post__title">Заголовок новости. Этот заголовок может занимать до двух строк.</h3>
-                  <p class="news__post__description">
+                <div class="news__post__block"><span class="news__post__date">20.12.2017</span>
+                  <h3>Заголовок новости. Этот заголовок может занимать до двух строк.</h3>
+                  <p>
                     Компания Р-КЛАСС расширила ассортимент выпускаемых вкладышей в пуанты. Ранее вкладыши выпускались только одной толщины - 3 мм ("толстые"). В новом сезоне запущены в производство вкладыши толщиной 2 мм ("тонкие"). "Тонкие" вкладыши наилучшим образом подходят для танцоров, использующих пуанты маленьких размеров.
                     
                   </p>
@@ -177,10 +178,9 @@
               </article>
               <article class="news__post">
                 <div class="news__post__img"> <img src="https://picsum.photos/300/300" srcset="https://picsum.photos/600/600 2x" alt="Заголовок новости"></div>
-                <div class="news__post__block">
-                  <p class="news__post__date">10.12.2017</p>
-                  <h3 class="news__post__title">Заголовок новости. Этот заголовок может занимать до двух строк.</h3>
-                  <p class="news__post__description">
+                <div class="news__post__block"><span class="news__post__date">10.12.2017</span>
+                  <h3>Заголовок новости. Этот заголовок может занимать до двух строк.</h3>
+                  <p>
                     Компания Р-КЛАСС расширила ассортимент выпускаемых вкладышей в пуанты. Ранее вкладыши выпускались только одной толщины - 3 мм ("толстые"). В новом сезоне запущены в производство вкладыши толщиной 2 мм ("тонкие"). "Тонкие" вкладыши наилучшим образом подходят для танцоров, использующих пуанты маленьких размеров.
                     
                   </p>

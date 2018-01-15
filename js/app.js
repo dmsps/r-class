@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(() => {
 
   //////////
   // Global variables
@@ -78,9 +78,6 @@ $(document).ready(function(){
 
     initMasks();
 
-    revealFooter();
-    _window.on('resize', throttle(revealFooter, 100));
-
     // temp - developer
     _window.on('resize', debounce(setBreakpoint, 200))
   }
@@ -117,31 +114,6 @@ $(document).ready(function(){
         return false;
 	});
 
-  // FOOTER REVEAL
-  function revealFooter() {
-    var footer = $('[js-reveal-footer]');
-    if (footer.length > 0) {
-      var footerHeight = footer.outerHeight();
-      var maxHeight = _window.height() - footerHeight > 100;
-      if (maxHeight && !msieversion() ) {
-        $('body').css({
-          'margin-bottom': footerHeight
-        });
-        footer.css({
-          'position': 'fixed',
-          'z-index': -10
-        });
-      } else {
-        $('body').css({
-          'margin-bottom': 0
-        });
-        footer.css({
-          'position': 'static',
-          'z-index': 10
-        });
-      }
-    }
-  }
 
   // HEADER SCROLL
   // add .header-static for .page or body
@@ -185,40 +157,60 @@ $(document).ready(function(){
   });
 
 
-  // VIDEO PLAY
-  $('.promo-video .icon').on('click', function(){
-    $(this).closest('.promo-video').toggleClass('playing');
-    $(this).closest('.promo-video').find('iframe').attr("src", $("iframe").attr("src").replace("autoplay=0", "autoplay=1"));
-  });
-
 
   //////////
   // SLIDERS
   //////////
 
   function initSliders(){
-    $('.clients__slider').slick({
-      autoplay: false,
-      dots: false,
-      arrows: true,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 1,
-      centerMode: true,
-      variableWidth: true,
-      prevArrow: '<button type="button" class="slick-prev"></button>',
-      nextArrow: '<button type="button" class="slick-next"></button>',
-     // fade: true,
-      //cssEase: 'linear',
-      responsive: [
-        {
-          breakpoint: 850,
-          settings: {
-            //autoplay: true,
-            arrows: false
-          }
+    // $('.clients__slider').slick({
+    //   autoplay: false,
+    //   dots: false,
+    //   arrows: true,
+    //   infinite: true,
+    //   speed: 300,
+    //   slidesToShow: 1,
+    //   centerMode: true,
+    //   variableWidth: true,
+    //   prevArrow: '<button type="button" class="slick-prev"></button>',
+    //   nextArrow: '<button type="button" class="slick-next"></button>',
+    //  // fade: true,
+    //   //cssEase: 'linear',
+    //   responsive: [
+    //     {
+    //       breakpoint: 850,
+    //       settings: {
+    //         //autoplay: true,
+    //         arrows: false
+    //       }
+    //     }
+    //   ]
+    // });
+    var mySwiper = new Swiper ('.clients__wrapper', {
+      // Optional parameters
+      loop: true,
+      centeredSlides: false,
+      grabCursor: true,
+      slidesPerView: 1,
+      spaceBetween: 2000,
+  
+      
+  
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      breakpoints: {
+        850: {
+          // If we need pagination
+          pagination: {
+            el: '.swiper-pagination',
+          },
         }
-      ]
+      },
+  
     });
   }
 
@@ -390,58 +382,6 @@ $(document).ready(function(){
 
     },300);
   }
-
-  //////////
-  // BARBA PJAX
-  //////////
-
-  // Barba.Pjax.Dom.containerClass = "page";
-
-  // var FadeTransition = Barba.BaseTransition.extend({
-  //   start: function() {
-  //     Promise
-  //       .all([this.newContainerLoading, this.fadeOut()])
-  //       .then(this.fadeIn.bind(this));
-  //   },
-
-  //   fadeOut: function() {
-  //     return $(this.oldContainer).animate({ opacity: .5 }, 200).promise();
-  //   },
-
-  //   fadeIn: function() {
-  //     var _this = this;
-  //     var $el = $(this.newContainer);
-
-  //     $(this.oldContainer).hide();
-
-  //     $el.css({
-  //       visibility : 'visible',
-  //       opacity : .5
-  //     });
-
-  //     $el.animate({ opacity: 1 }, 200, function() {
-  //       document.body.scrollTop = 0;
-  //       _this.done();
-  //     });
-  //   }
-  // });
-
-  // Barba.Pjax.getTransition = function() {
-  //   return FadeTransition;
-  // };
-
-  // Barba.Prefetch.init();
-  // Barba.Pjax.start();
-
-  // Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container, newPageRawHTML) {
-
-  //   pageReady();
-
-  //   // close mobile menu
-  //   if ( _window.width() < bp.mobile ){
-  //     closeMobileMenu();
-  //   }
-  // });
 
 // Dev Extreme
 
