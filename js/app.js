@@ -149,7 +149,7 @@ $(document).ready(() => {
 
   //Меняем на закрытый hamburger при клике по другому блоку
   $(document).on('click', function(e) {
-    if (!$(e.target).closest(".page").length) {
+    if (!$(e.target).closest(".pusher").length) {
       $('.hamburger').toggleClass('active');
     }
     e.stopPropagation();
