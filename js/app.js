@@ -138,22 +138,27 @@ $(document).ready(() => {
   //     }
   //   }), 10);
   // }
-
+  //Меняем на закрытый hamburger при клике по другому блоку
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest(".header__logo").length) {
+      $('.hamburger').removeClass('active');
+    }
+    e.stopPropagation();
+  });
   // HAMBURGER TOGGLER
   $('.js-hamburger').on('click', function(){
     //$('.hamburger').addClass('active');
     //$('.mobile__menu').toggleClass('active');
-    $('.ui.sidebar').sidebar('toggle', 'hamburger');
     $('.hamburger').toggleClass('active');
+    $('.ui.sidebar').sidebar('toggle');
   });
 
-  //Меняем на закрытый hamburger при клике по другому блоку
-  $(document).on('click', function(e) {
-    if (!$(e.target).closest(".pusher").length) {
-      $('.hamburger').toggleClass('active');
-    }
-    e.stopPropagation();
+  $('.item.menu-close').on('click', function(){
+    $('.hamburger').removeClass('active');
+    $('.ui.sidebar').sidebar('toggle');
   });
+
+
 
   // SET ACTIVE CLASS IN HEADER
   // * could be removed in production and server side rendering
