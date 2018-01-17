@@ -209,8 +209,6 @@ $(document).ready(() => {
       slidesPerView: 1,
       spaceBetween: 2000,
   
-      
-  
       // Navigation arrows
       navigation: {
         nextEl: '.swiper-button-next',
@@ -219,9 +217,10 @@ $(document).ready(() => {
 
       breakpoints: {
         850: {
-          // If we need pagination
+          // Pagination
           pagination: {
             el: '.swiper-pagination',
+            clickable: true,
           },
         }
       },
@@ -398,24 +397,12 @@ $(document).ready(() => {
     },300);
   }
 
-// Dev Extreme
-
+//Semantic UI
 //SelectBox
-// https://js.devexpress.com/Documentation/Guide/Widgets/SelectBox/Overview/
-  var languages = [
-    "RU",
-    "EN"
-  ];
 
-  $("#lang").dxSelectBox({
-    items: languages,
-    value: languages[0],
-    placeholder: null
-  });
-
-  $('.ui.dropdown')
+  $('.lang.ui.dropdown')
     .dropdown({
-      transition: 'horizontal flip'
+      transition: 'fade'
     });
 
 });
