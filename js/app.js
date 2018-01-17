@@ -158,21 +158,6 @@ $(document).ready(() => {
     $('.ui.sidebar').sidebar('toggle');
   });
 
-
-
-  // SET ACTIVE CLASS IN HEADER
-  // * could be removed in production and server side rendering
-  // user .active for li instead
-  $('.header__menu__list li').each(function(i,val){
-    if ( $(val).find('a').attr('href') == window.location.pathname.split('/').pop() ){
-      $(val).addClass('active');
-    } else {
-      $(val).removeClass('active')
-    }
-  });
-
-
-
   //////////
   // SLIDERS
   //////////
@@ -398,11 +383,21 @@ $(document).ready(() => {
   }
 
 //Semantic UI
-//SelectBox
 
+//SelectBox
   $('.lang.ui.dropdown')
     .dropdown({
       transition: 'fade'
+    });
+
+//Checkbox
+  $('.ui.checkbox')
+    .checkbox();
+      
+//Tabs filter
+  $('#catalog__filter .menu .item')
+    .tab({
+      context: $('#catalog__filter')
     });
 
 });
