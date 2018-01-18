@@ -186,7 +186,7 @@ $(document).ready(() => {
     //     }
     //   ]
     // });
-    var mySwiper = new Swiper ('.clients__wrapper', {
+    var clientsSwiper = new Swiper ('.clients__wrapper', {
       // Optional parameters
       loop: true,
       centeredSlides: false,
@@ -208,6 +208,20 @@ $(document).ready(() => {
             clickable: true,
           },
         }
+      },
+  
+    });
+
+    var mainSwiper = new Swiper ('#main__banner', {
+      // Optional parameters
+      loop: true,
+      centeredSlides: false,
+      slidesPerView: 1,
+  
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
   
     });
@@ -396,9 +410,7 @@ $(document).ready(() => {
       
 //Tabs filter
   $('#catalog__filter .menu .item')
-    .tab({
-      context: $('#catalog__filter')
-    });
+    .tab();
 
 });
 
