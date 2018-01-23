@@ -186,6 +186,8 @@ $(document).ready(() => {
     //     }
     //   ]
     // });
+
+    // Homepage clients slider
     var clientsSwiper = new Swiper ('.clients__wrapper', {
       // Optional parameters
       loop: true,
@@ -212,6 +214,7 @@ $(document).ready(() => {
   
     });
 
+    // Homepage main slider
     var mainSwiper = new Swiper ('#main__banner', {
       // Optional parameters
       loop: true,
@@ -224,6 +227,18 @@ $(document).ready(() => {
         prevEl: '.swiper-button-prev',
       },
   
+    });
+
+    // Productpage img slider
+    var productSwiper = new Swiper ('.product__img', {
+      // Optional parameters
+      loop: true,
+      centeredSlides: false,
+      slidesPerView: 1,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
     });
   }
 
