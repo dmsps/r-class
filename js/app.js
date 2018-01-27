@@ -427,6 +427,15 @@ $(document).ready(() => {
   $('#catalog__filter .menu .item')
     .tab();
 
+// Product popup
+  $('.product__feature')
+    .popup({
+      popup: $('.product-popup'),
+      transition: 'fade',
+      position: 'bottom left',
+      on: 'click',
+      lastResort: 'bottom left'
+    });
 });
 
 $(document).ready(function(){
