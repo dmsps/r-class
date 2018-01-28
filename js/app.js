@@ -436,6 +436,84 @@ $(document).ready(() => {
       on: 'click',
       lastResort: 'bottom left'
     });
+
+
+// Maps
+//Map Where to buy
+  mapboxgl.accessToken = 'pk.eyJ1IjoiZG1zcHMiLCJhIjoiY2o4ZnA4c3hyMDVjNDJ4bnI4ODdpdWhxbSJ9.IFJ9oFrHWywogkZXjMr6hw';
+
+  var map = new mapboxgl.Map({
+    container: 'locations__map',
+    style: 'mapbox://styles/mapbox/light-v9',
+    center: [-96, 37.8],
+    zoom: 3
+  });
+
+  var geojson = {
+    type: 'FeatureCollection',
+    features: [{
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-77.032, 38.913]
+      },
+      properties: {
+        title: 'Название магазина',
+        description: 'Адрес магазина'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-122.414, 37.776]
+      },
+      properties: {
+        title: 'Название магазина',
+        description: 'Адрес магазина'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-102.414, 37.776]
+      },
+      properties: {
+        title: 'Название магазина',
+        description: 'Адрес магазина'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-122.414, 37.776]
+      },
+      properties: {
+        title: 'Название магазина',
+        description: 'Адрес магазина'
+      }
+    }]
+  };
+  
+  // add markers to map
+  geojson.features.forEach(function(marker) {
+
+    // create a HTML element for each feature
+    var el = document.createElement('div');
+    el.className = 'icon-pin';
+
+    // make a marker for each feature and add to the map
+    new mapboxgl.Marker(el)
+    .setLngLat(marker.geometry.coordinates)
+    .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+    .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+    .addTo(map);
+  });
+
+
+
 });
 
 $(document).ready(function(){
